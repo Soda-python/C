@@ -1,0 +1,44 @@
+/*你的代码存在一些问题。首先，fmax和fmin函数的参数应该是两个数，而你传递了一个元组 (a, b) 或 (a, b, c)，这是不正确的。
+其次，在条件判断语句中，你使用了赋值操作符 = 而不是相等性判断操作符 ==。
+最后，在判断三个数相等的条件中，应该使用逻辑与操作符 &&，而不是赋值操作符。*/
+//正确代码：
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int a,b,c,Max,Min;
+    scanf("%d %d %d",&a,&b,&c);
+    Max = (int)fmax(fmax(a,b),c);
+    Min = (int)fmin(fmin(a,b),c);
+    if (Max != a && Min != a) {
+        printf("%d->%d->%d",Min,a,Max);
+    } else if (Max != b && Min != b) {
+        printf("%d->%d->%d",Min,b,Max);
+    } else if (Max != c && Min != c) {
+        printf("%d->%d->%d",Min,c,Max);
+    } else if (a == b && b == c) {
+        printf("%d->%d->%d",a,b,c);
+    }
+    return 0;
+}
+//错误代码：
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int a,b,c,Max,Min;
+    scanf("%d %d %d",&a,&b,&c);
+    Max = (int)fmax((a,b),c);
+    Min = (int)fmin((a,b),c);
+    if (Max != a && Min != a) {
+        printf("%d->%d->%d",Min,a,Max);
+    } else if (Max != b && Min != b) {
+        printf("%d->%d->%d",Min,b,Max);
+    } else if (Max != c && Min != c) {
+        printf("%d->%d->%d",Min,c,Max);
+    } else if (a = b = c) {
+        printf("%d->%d->%d",a,b,c);
+    }
+    return 0;
+}
+
