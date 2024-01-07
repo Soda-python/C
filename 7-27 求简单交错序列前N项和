@@ -1,0 +1,18 @@
+/*天梯初级题目集第7-27题，
+  由于简单的循环逻辑问题卡了好久，感触颇深，遂记载。*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int main(){
+    int N;
+    double A=1.0,B=1,C=1.0;
+    scanf("%d",&N);
+    while (C < N ) {
+    	B = (abs(B) + 3.0) * pow(-1,C);
+        A += 1.0 / B;
+        C += 1.0;
+    } 
+    printf("sum = %.3f",A);
+    return 0;
+}
