@@ -1,0 +1,19 @@
+/*该题涉及两个尚未熟悉的点。
+1：if条件判断中“逻辑与”的使用，2：占位格式化输出（代码第十行）*/
+#include <stdio.h>
+int main()
+{
+    int lower;
+    double upper;
+    scanf("%d %lf",&lower,&upper);
+    if (lower <= upper && upper <= 100){
+        printf("fahr celsius\n");
+        while (lower <= upper && upper <= 100){
+            printf("%d%6.1f\n",lower,5*(lower-32)/9.0);
+            lower += 2;
+        }
+    } else {
+        printf("Invalid.");
+    }
+    return 0;
+}
