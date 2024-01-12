@@ -1,0 +1,19 @@
+#include <stdio.h>
+int search(int target,int shuzu[],int length);
+int main(){
+	int a[5] = {1,2,3,4,5,};
+	int location;
+	location = search(3,a,sizeof(a)/sizeof(a[0]));
+	printf("%d",location);
+	return 0;
+}
+int search(int target,int shuzu[],int length){
+	int result=-1,i;
+	for (i=0;i<length;i++){
+		if (target == shuzu[i]){
+			result = i;
+			break;
+		} 
+	}
+	return result;
+}
