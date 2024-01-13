@@ -11,7 +11,43 @@
 表示:101
     010
     010 */
-//代码如下：
+
+//自己写的代码：
+#include <stdio.h>
+int main() {
+	int qipan[3][3] = {0};
+	int i=0,j=0;
+	for(i=0;i<3;i++){
+		for(j=0;j<3;j++){
+			scanf("%d",&qipan[i][j]);
+		}
+	}
+	int qipanX=0,qipanO=0,qipanXX=0,qipanOO=0;
+	for(i=0;i<3;i++){
+		if (qipan[i][0] == qipan[i][1] && qipan[i][1]== qipan [i][2] && qipan[i][0]== 1 || qipan[0][i] == qipan[1][i] && qipan[1][i] == qipan[2][i] && qipan[0][i] == 1){
+			qipanX = 1;
+			break;
+		} if (qipan[i][0] == qipan[i][1] && qipan[i][1]== qipan [i][2] && qipan[i][0]== 0 || qipan[0][i] == qipan[1][i] && qipan[1][i] == qipan[2][i] && qipan[0][i] == 0){
+			qipanO = 1;
+			break;
+		}
+	}
+	if (qipan[0][0] == qipan[1][1] && qipan[1][1] == qipan[2][2]  && qipan[0][0] == 1 || qipan[0][2] == qipan[1][1] && qipan[1][1] == qipan[2][0] && qipan[0][2] == 1){
+		qipanXX = 1;
+	} if (qipan[0][0] == qipan[1][1] && qipan[1][1] == qipan[2][2]  && qipan[0][0] == 0 || qipan[0][2] == qipan[1][1] && qipan[1][1] == qipan[2][0] && qipan[0][2] == 0)	{
+		qipanOO = 1;
+	}
+	if (qipanX == 1 || qipanXX == 1){
+		printf("X wins.");
+	} if (qipanO == 1 || qipanOO == 1){
+		printf("O wins.");
+	} if (qipanX != 1 && qipanXX != 1 && qipanO != 1 && qipanOO != 1){
+		printf("Draw.");
+	}
+	return 0;
+}
+
+//参考代码如下：
 #include <stdio.h>
 int main(){
 	const int size = 3;
