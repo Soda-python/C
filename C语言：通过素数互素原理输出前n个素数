@@ -1,3 +1,40 @@
+//自己想出来的方法：
+#include <stdio.h>
+int isPrime(int x, int knownPrimes[],int yizhizongshu);
+
+int main() {
+	int x=3;
+	int i,n;
+	int yizhizongshu1 = 1;
+	int knownPrimes1[50] = {2};
+	for (i=1;i<50;){
+		if (isPrime(x,knownPrimes1,yizhizongshu1) == 1) {
+			knownPrimes1[i] = x;
+			yizhizongshu1 += 1;
+			x += 1;
+			i += 1;
+		} else {
+			x += 1;
+		}
+	}
+	for (n=0;n<50;n++) {
+		printf("%d ",knownPrimes1[n]);
+	}
+	return 0;
+}
+
+int isPrime(int x, int knownPrimes[],int yizhizongshu) {
+	int i,ret = 1;
+	for (i=0;i<yizhizongshu;i++) {
+		if (x % knownPrimes[i] == 0 ){
+			ret = 0;
+			return ret;
+		} 
+	}
+	return ret;
+}
+
+//翁恺方法：
 #include <stdio.h>
 #define number 100
 int isPrime(int x,int knownPrimes[],int numberOfKnownPrimes);
