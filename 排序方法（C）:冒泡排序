@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void bubble_sort(int list[],int n);
+int main(){
+	srand(time(NULL));
+	int Lis1[9],i;
+	for (i=0;i<9;i++){
+		Lis1[i] = rand() % 50 + 1;
+	}
+	for (i=0;i<9;i++){
+		printf("%d ",Lis1[i]);
+	}
+	printf("\n");
+	bubble_sort(Lis1,sizeof(Lis1)/sizeof(Lis1[0]));
+	for (i=0;i<9;i++){
+		printf("%d ",Lis1[i]);
+	}
+	return 0;
+}
+void bubble_sort(int list[],int n){
+	int i,j,tmp;
+	for (i=0;i<n-1;i++){
+		for (j=0;j<n-1-i;j++){
+			if (list[j] > list[j+1]){
+				tmp = list[j];
+				list[j] = list[j+1];
+				list[j+1] = tmp;
+			}
+		}
+	}
+}
